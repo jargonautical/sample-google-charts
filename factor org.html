@@ -1,0 +1,41 @@
+  <div class="col-sm-4">
+    
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+        google.load("visualization", "1", {packages:["orgchart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Manager');
+        data.addColumn('string', 'ToolTip');
+
+        data.addRows([
+            [{v:'Access to services', f:'Access to services<div style="color:red; font-style:italic"><div>'}, 'Road condition', 'VP'],
+            [{v:'Active lifestyles', f:'Active lifestyles<div style="color:red; font-style:italic"><div>'}, 'Road safety', 'VP'],
+            ['Further education', 'Access to services', ''],
+            ['Employment', 'Access to services', ''],
+            ['Health services', 'Access to services', '']
+
+
+        
+        ]);
+
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div_factors'));
+        chart.draw(data, {allowHtml:true});
+        }
+        </script>
+    
+        <div id="chart-wrapper">
+            <div class="chart-title">
+            <h3>Factors</h3>
+            </div>
+            <div class="chart-stage">
+                <div id="chart_div_factors">
+                </div>
+            </div>
+            <div class="chart-notes">
+            Factors
+            </div>
+        </div>
+    </div>

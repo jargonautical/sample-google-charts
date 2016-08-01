@@ -1,0 +1,40 @@
+  <script type="text/javascript"
+            src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['sankey']}]}">
+            </script>
+
+            <div id="sankey_multiple"></div>
+
+            <script type="text/javascript">
+            google.setOnLoadCallback(drawChart);
+            function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'From');
+            data.addColumn('string', 'To');
+            data.addColumn('number', 'Weight');
+            data.addRows([
+            [ 'Road condition', 'Further education', 2 ],
+            [ 'Road condition', 'Employment', 1 ],
+            [ 'Road safety', 'Active lifestyles', 1 ]
+            ]);
+
+            // Set chart options
+            var options = {
+            width: 300,
+            };
+
+            // Instantiate and draw our chart, passing in some options.
+            var chart = new google.visualization.Sankey(document.getElementById('sankey_multiple'));
+            chart.draw(data, options);
+            }
+            </script>
+            
+            <div class="chart-stage">
+                <div class="chart-title">
+                <h3>Factors test</h3>  
+                </div>
+                <div id="sankey_multiple">
+                </div>
+            </div>
+            <div class="chart-notes">
+            <p align='left'>Testing the sankey for factors</p>
+            </div> 

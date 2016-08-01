@@ -1,0 +1,64 @@
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawSeriesChart);
+
+        function drawSeriesChart() {
+
+        var data = google.visualization.arrayToDataTable([
+        ['ID',  'Impact score', 'Engagement score', 'Group',  '% population'],
+        ['B',      4,          2,          'Age 16 to 64',      60.2],
+        ['C',      8,          10,          'Age 65 to 84',      19.9],
+        ['D',      9,          5,          'Age 85 +',       3.5],
+        ['E',      10,          8,          'Disability or long term health condition',       8.353]
+        ]);
+
+        var options = {
+        vAxis: {title: 'Engagement score', minValue:-3, maxValue:15, textPosition: 'none'},
+        hAxis: {title: 'Impact score', minValue:-3, maxValue:15, textPosition: 'none'},
+        bubble: {textStyle: {fontSize: 11}, auraColor: 'none'},
+        legend: {position:'none'},
+        tooltip: {trigger: 'selection', showColorCode: true}
+        };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('chart_div_impact'));
+        chart.draw(data, options);
+        }
+
+        function drawGradientColorChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['ID', 'X', 'Y', 'Temperature'],
+        ['',   1,  4,      2],
+        ['',   2,  4,      2],
+        ['',   3,  4,      2],
+        ['',   4,  4,      2],
+        ['',   5,  4,      2],
+        ['',   6,  4,      2],
+        ['',   7,  4,      2]
+        ]);
+
+        var options = {
+        colorAxis: {colors: ['green', 'blue']},
+        legend: {position: 'right'}
+        };
+
+        var chart = new google.visualization.BubbleChart(document.getElementById('gradient_chart_div'));
+        chart.draw(data, options);
+        }
+        </script>
+
+        <div id="chart-wrapper">
+            <div class="chart-title">
+            <h3>Impacts  </h3>
+            </div>
+            <div class="chart-stage">
+                <div id="chart_div_impact">
+                </div>
+            </div>
+            <div class="chart-notes">
+            <p align='left'>Showing which population groups are our stakeholders for this service: 
+            how strongly are they affected, and how well do we consult or co-design with them?
+            <br>The larger the bubble, the greater the percentage of Devon's population in that group.
+            <br>Click on any bubble to see the details.</p>
+            </div>
+        </div>

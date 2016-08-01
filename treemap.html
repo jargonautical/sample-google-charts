@@ -1,0 +1,29 @@
+          <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["treemap"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Cat','Bud', '£m'],
+            ['Revenue',null,  0],
+            ['Safety defect repair','Revenue',  6.57],
+            ['Winter service and emergency','Revenue',  5.89],
+            ['Street lighting and illuminated signs','Revenue',  5.14],
+            ['Road cleaning, ditching and gully emptying','Revenue',  3.38],
+            ['Signs, marking and signals','Revenue',  1.91],
+            ['Vegetation management','Revenue',  1.84],
+            ['Drainage and fencing', 'Revenue',   1.44],
+            ['Depots and other items','Revenue',  1.42],
+            ['Highways structures','Revenue', 0.9]
+            ]);
+
+            tree = new google.visualization.TreeMap(document.getElementById('chart_div_A'));
+
+            tree.draw(data, {
+          headerHeight: 15,
+          fontColor: 'black',
+          showScale: false
+        });
+
+      }
+    </script>
